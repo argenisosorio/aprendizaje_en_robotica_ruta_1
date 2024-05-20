@@ -4,9 +4,7 @@
 }
 */
 html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  background-color: #fbbf00;
 }
 .leccion-1 {
   background: url(../img/Leccion-1/leccion-1-background.png) no-repeat center center;
