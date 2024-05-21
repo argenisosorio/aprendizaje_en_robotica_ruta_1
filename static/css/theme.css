@@ -26,6 +26,9 @@ a {
   text-decoration: none;
   color: inherit; /* Usa este valor si quieres que el enlace tome el color del elemento padre */
 }
+a:hover {
+  color: #000000;
+}
 .img-zoom {
   transform:scale(1);
   -ms-transform:scale(1);
