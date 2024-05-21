@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <link rel="icon" href="static/img/favicon.png">
-    <title>Aprendizaje en Robótica</title>
+    <title>Curso - Aprendizaje en Robótica</title>
     <!-- Bootstrap core CSS -->
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- font-awesome-6 -->
@@ -22,9 +22,17 @@
   </head>  
 <body>
   <!-- Banner -->
-  <a href="index.html">
-    <img src="static/img/banner.png" width="100%" class="img-zoom">
-  </a>
+  <div class="container-fluidd">
+    <a href="index.html">
+      <img
+        id="my-img"
+        src="static/img/banner.png"
+        onmouseover="hover(this);"
+        onmouseout="unhover(this);"
+        width="100%"
+      />
+    </a>
+  </div>
   <!-- Final del Banner -->
 
   <!--img src="static/img/index.png" width="100%" class="mt-3"-->
@@ -66,7 +74,7 @@
     <!-- Final de Lección 3 -->
 
     <!-- Lección 4 -->
-    <div class="row leccion-4">
+    <div class="row leccion-4 mb-5">
       <div class="col-8">
       </div>
       <div class="col-4 text-center">
@@ -76,8 +84,27 @@
       </div>
     </div>
     <!-- Final de Lección 4 -->
+
+    <!-- Footer -->
+    <div class="text-center img-zoom mb-3">
+      <a href="http://www.cenditel.gob.ve/" target="_blank">
+        <img src="static/img/logo-cenditel.png" width="10%" class="mb-3">
+        <br>
+        <b>Desarrollado por CENDITEL</b>
+      </a>
+    </div>
+    <!-- Final del Footer -->
   </div>
 
   <script src="static/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function unhover(element) {
+      element.setAttribute('src', 'static/img/banner.png');
+    }
+    function hover(element) {
+      element.setAttribute('src', 'static/img/banner2.png');
+    }
+  </script>
 </body>
 </html>
