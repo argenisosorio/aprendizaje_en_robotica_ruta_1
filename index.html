@@ -21,9 +21,15 @@
     </style>
   </head>  
 <body>
+  <audio id="hover-sound0" src="static/audio/banner_sound_effect.mp3"></audio>
+  <audio id="hover-sound1" src="static/audio/Robot_sound_effect.mp3"></audio>
+  <audio id="hover-sound2" src="static/audio/Robot_sound_effect.mp3"></audio>
+  <audio id="hover-sound3" src="static/audio/Robot_sound_effect.mp3"></audio>
+  <audio id="hover-sound4" src="static/audio/Robot_sound_effect.mp3"></audio>
+
   <!-- Banner -->
   <div class="container-fluidd">
-    <a href="index.html">
+    <a href="index.html" id="hover-span0">
       <img
         id="my-img"
         src="static/img/banner.png"
@@ -34,11 +40,6 @@
     </a>
   </div>
   <!-- Final del Banner -->
-
-  <audio id="hover-sound1" src="static/audio/Robot_sound_effect.mp3"></audio>
-  <audio id="hover-sound2" src="static/audio/Robot_sound_effect.mp3"></audio>
-  <audio id="hover-sound3" src="static/audio/Robot_sound_effect.mp3"></audio>
-  <audio id="hover-sound4" src="static/audio/Robot_sound_effect.mp3"></audio>
 
   <!--img src="static/img/index.png" width="100%" class="mt-3"-->
   <div class="container-fluid">
@@ -132,6 +133,7 @@
       var audio = document.getElementById('hover-sound1');
       audio.play().then(() => {
         // Inicializar eventos de hover para cada par de elementos
+        initializeHoverSound('hover-span0', 'hover-sound0');
         initializeHoverSound('hover-span1', 'hover-sound1');
         initializeHoverSound('hover-span2', 'hover-sound2');
         initializeHoverSound('hover-span3', 'hover-sound3');
