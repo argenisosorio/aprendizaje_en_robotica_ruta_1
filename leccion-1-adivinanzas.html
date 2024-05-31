@@ -23,7 +23,6 @@
         z-index: 2;
         color: #fff;
         background-color: #00a4e1 !important;
-        border-color: #0d6efd;
       }
       .btn-success {
         width: 100%;
@@ -138,14 +137,108 @@
           sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
+        <div class="text-center">
+          <audio
+            controls
+            style="width: 70%; height: auto;"
+            src="static/audio/prueba.m4a"
+          >
+          </audio>
+        </div>
+        <br>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <!-- Left Column -->
+              <div class="col-6">
+                <div class="card text-center" style="background-color: #00a4e1;">
+                  <div class="card-body" style="font-weight: bold; color: #fff;">
+                    <h4>
+                      Cuando deje de llover
+                      <br>
+                      <br>
+                      mira al cielo un instante
+                      <br>
+                      <br>
+                      y verás aparecer
+                      <br>
+                      <br>
+                      un arco de colores gigante
+                      <br>
+                      <br>
+                      ¿Qué es?
+                    </h4>
+                    </div>
+                </div>
+              </div>
+              <!-- End Left Column -->
+
+              <!-- Right Column -->
+              <div class="col-6">
+                <img src="static/img/nino.jpg" width="30%">
+              </div>
+              <!-- End Right Column -->
+
+              <div class="row text-center mt-4">
+                <div class="col-4">
+                  <!-- Button trigger modal -->
+                    <button
+                    type="button"
+                    class="btn btn-success"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    <b>Un avión</b>
+                  </button>
+                  <!-- Final Button trigger modal -->
+                </div>
+                <div class="col-4">
+                  <!-- Button trigger modal -->
+                    <button
+                    type="button"
+                    class="btn btn-success"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                  <b>Un perro</b>
+                  </button>
+                  <!-- Final Button trigger modal -->
+                </div>
+                <div class="col-4">
+                  <!-- Button trigger modal -->
+                    <button
+                    type="button"
+                    class="btn btn-success"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    <b>Un Arcoíris</b>
+                  </button>
+                  <!-- Final Button trigger modal -->
+                </div>
+              </div>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <h1 class="text-center">¡Acertaste!</h1>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Final de Modal -->
+
+            </div>
+          </div>
+        </div>
       </div>
       <!-- End Right Column -->
     </div>
