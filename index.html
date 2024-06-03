@@ -26,6 +26,7 @@
   <audio id="hover-sound2" src="static/audio/Robot_sound_effect.mp3"></audio>
   <audio id="hover-sound3" src="static/audio/Robot_sound_effect.mp3"></audio>
   <audio id="hover-sound4" src="static/audio/Robot_sound_effect.mp3"></audio>
+  <audio id="hover-sound5" src="static/audio/voice-robot-cenditel.mp3"></audio>
 
   <!-- Banner -->
   <div class="container-fluidd">
@@ -93,7 +94,7 @@
 
     <!-- Footer -->
     <div class="text-center img-zoom mb-3">
-      <a href="http://www.cenditel.gob.ve/" target="_blank">
+      <a href="http://www.cenditel.gob.ve/" target="_blank" id="hover-span5">
         <img src="static/img/logo-cenditel.png" width="7%" class="mb-3">
         <br>
         <b style="font-size: 12px;">Desarrollado por CENDITEL</b>
@@ -138,6 +139,7 @@
         initializeHoverSound('hover-span2', 'hover-sound2');
         initializeHoverSound('hover-span3', 'hover-sound3');
         initializeHoverSound('hover-span4', 'hover-sound4');
+        initializeHoverSound('hover-span5', 'hover-sound5');
         // Quitar este listener de clic ya que solo se necesita una vez
         document.body.removeEventListener('click', firstClick);
       }).catch(function(error) {
