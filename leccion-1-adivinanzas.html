@@ -181,36 +181,42 @@
 
               <div class="row text-center mt-4">
                 <div class="col-4">
+                  <img src="static/img/Leccion-1/lapiz.jpg" width="50%" class="mb-3">
                   <!-- Button trigger modal -->
                     <button
                     type="button"
                     class="btn btn-success"
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
+                    data-text="¡Incorrecto!"
                   >
                     <b>Un avión</b>
                   </button>
                   <!-- Final Button trigger modal -->
                 </div>
                 <div class="col-4">
+                  <img src="static/img/Leccion-1/perro.png" width="50%" class="mb-3">
                   <!-- Button trigger modal -->
                     <button
                     type="button"
                     class="btn btn-success"
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
+                    data-text="¡Incorrecto!"
                   >
                   <b>Un perro</b>
                   </button>
                   <!-- Final Button trigger modal -->
                 </div>
                 <div class="col-4">
+                  <img src="static/img/Leccion-1/arcoiris.jpg" width="50%" class="mb-3">
                   <!-- Button trigger modal -->
                     <button
                     type="button"
                     class="btn btn-success"
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
+                    data-text="¡Acertaste!"
                   >
                     <b>Un Arcoíris</b>
                   </button>
@@ -226,7 +232,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <h1 class="text-center">¡Acertaste!</h1>
+                      <h1 class="text-center" id="modalText"></h1>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -265,6 +271,33 @@
     function hover(element) {
       element.setAttribute('src', 'static/img/banner2.png');
     }
+
+    // Selecciona el elemento del modal por su id
+    const myModal = document.getElementById('exampleModal');
+
+    // Selecciona todos los botones que tienen el atributo data-bs-toggle="modal"
+    // Esto encuentra todos los botones que activan el modal
+    const triggerButtons = document.querySelectorAll('[data-bs-toggle="modal"]');
+
+    // Añade un event listener a cada botón encontrado
+    triggerButtons.forEach(button => {
+      button.addEventListener('click', (event) => {
+        // Obtiene el valor del atributo data-text del botón clicado
+        const text = event.currentTarget.getAttribute('data-text');
+        // Establece el atributo data-text en el modal con el texto obtenido
+        myModal.setAttribute('data-text', text);
+      });
+    });
+
+    // Añade un event listener que se activa cuando el modal se muestra
+    myModal.addEventListener('shown.bs.modal', () => {
+      // Obtiene el valor del atributo data-text del modal
+      const text = myModal.getAttribute('data-text');
+      // Selecciona el elemento del modal que muestra el texto
+      const modalTextElement = document.getElementById('modalText');
+      // Actualiza el contenido del elemento con el texto obtenido
+      modalTextElement.textContent = text;
+    });
   </script>
 </body>
 </html>
