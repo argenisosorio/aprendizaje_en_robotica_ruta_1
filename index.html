@@ -18,8 +18,73 @@
       html, body {
         background-color: #fbbf00;
       }
+
+      /* Estilos generales para móviles */
+      @media (max-width: 767px) {
+        /* Ajustes para el banner */
+        #my-img {
+          width: 100%;
+        }
+
+        /* Ajustes para las lecciones */
+        .leccion-1, .leccion-2, .leccion-3, .leccion-4 {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .leccion-1 .col-4, .leccion-2 .col-4, .leccion-3 .col-4, .leccion-4 .col-4 {
+          width: 100%;
+          order: 1;
+          margin-bottom: 15px;
+        }
+
+        .leccion-1 .col-8, .leccion-2 .col-8, .leccion-3 .col-8, .leccion-4 .col-8 {
+          width: 100%;
+          order: 2;
+        }
+
+        /* Ajuste de tamaño de imagen para móviles */
+        .leccion-1 img, .leccion-2 img, .leccion-3 img, .leccion-4 img {
+          width: 60%;
+        }
+
+        /* Footer ajustes */
+        .img-zoom img {
+          width: 15%;
+        }
+
+        .img-zoom b {
+          font-size: 10px;
+        }
+      }
+
+      /* Estilos para tablets */
+      @media (min-width: 768px) and (max-width: 1024px) {
+        /* Ajustes para el banner */
+        #my-img {
+          width: 100%;
+        }
+
+        /* Ajustes para las lecciones */
+        .leccion-1 .col-4, .leccion-2 .col-4, .leccion-3 .col-4, .leccion-4 .col-4 {
+          width: 50%;
+        }
+
+        .leccion-1 img, .leccion-2 img, .leccion-3 img, .leccion-4 img {
+          width: 50%;
+        }
+
+        /* Footer ajustes */
+        .img-zoom img {
+          width: 10%;
+        }
+
+        .img-zoom b {
+          font-size: 11px;
+        }
+      }
     </style>
-  </head>  
+  </head>
 <body>
   <audio id="hover-sound0" src="static/audio/banner_sound_effect.mp3"></audio>
   <audio id="hover-sound1" src="static/audio/Robot_sound_effect.mp3"></audio>
