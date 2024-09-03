@@ -272,7 +272,13 @@
                 <div class="modal-header">
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body d-flex flex-column align-items-center">
+                  <img
+                    id="modalImage"
+                    src=""
+                    alt=""
+                    style="width: 50%; display: none;"
+                  >
                   <h1 class="text-center" id="modalText"></h1>
                 </div>
                 <div class="modal-footer">
@@ -314,7 +320,6 @@
     const myModal = document.getElementById('exampleModal');
 
     // Selecciona todos los botones que tienen el atributo data-bs-toggle="modal"
-    // Esto encuentra todos los botones que activan el modal
     const triggerButtons = document.querySelectorAll('[data-bs-toggle="modal"]');
 
     // Añade un event listener a cada botón encontrado
@@ -322,8 +327,20 @@
       button.addEventListener('click', (event) => {
         // Obtiene el valor del atributo data-text del botón clicado
         const text = event.currentTarget.getAttribute('data-text');
+
         // Establece el atributo data-text en el modal con el texto obtenido
         myModal.setAttribute('data-text', text);
+
+        // Añade una condición para establecer la imagen
+        let imgSrc = "";
+        if (text === "¡Acertaste!") {
+          imgSrc = "static/img/acierto.png"; // Ruta de la imagen que deseas mostrar
+        } else {
+          imgSrc = "static/img/favicon.png"; // Ruta de la imagen para respuestas incorrectas
+        }
+
+        // Establece la ruta de la imagen en el modal
+        myModal.setAttribute('data-img', imgSrc);
       });
     });
 
@@ -335,7 +352,21 @@
       const modalTextElement = document.getElementById('modalText');
       // Actualiza el contenido del elemento con el texto obtenido
       modalTextElement.textContent = text;
+
+      // Obtiene el valor del atributo data-img del modal
+      const imgSrc = myModal.getAttribute('data-img');
+      // Selecciona el elemento del modal que muestra la imagen
+      const modalImageElement = document.getElementById('modalImage');
+
+      // Si hay una imagen, la muestra, de lo contrario la oculta
+      if (imgSrc) {
+        modalImageElement.src = imgSrc;
+        modalImageElement.style.display = 'block';
+      } else {
+        modalImageElement.style.display = 'none';
+      }
     });
+
   </script>
 </body>
 </html>
