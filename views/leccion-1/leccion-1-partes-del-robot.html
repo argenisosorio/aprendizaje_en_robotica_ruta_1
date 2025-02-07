@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <link rel="icon" href="static/img/favicon.png">
+    <link rel="icon" href="../../static/img/favicon.png">
     <title>Curso - Aprendizaje en Robótica</title>
     <!-- Bootstrap core CSS -->
-    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- font-awesome-6 -->
-    <link href="static/font-awesome-6/css/fontawesome.css" rel="stylesheet" />
-    <link href="static/font-awesome-6/css/all.css" rel="stylesheet" />
+    <link href="../../static/font-awesome-6/css/fontawesome.css" rel="stylesheet" />
+    <link href="../../static/font-awesome-6/css/all.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
-    <link href="static/css/theme.css" rel="stylesheet">
+    <link href="../../static/css/theme.css" rel="stylesheet">
     <style>
       .list-group-item {
         background-color: #fff !important;
@@ -112,10 +112,10 @@
 <body>
   <!-- Banner -->
   <div class="container-fluidd">
-    <a href="index.html">
+    <a href="../../index.html">
       <img
         id="my-img"
-        src="static/img/banner.png"
+        src="../../static/img/banner.png"
         onmouseover="hover(this);"
         onmouseout="unhover(this);"
         width="100%"
@@ -130,12 +130,12 @@
       <nav aria-label="breadcrumb" style="color: #00a4e1;font-size: 17px;">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="index.html">
+            <a href="../../index.html">
               <i class="fa-solid fa-house"></i> Inicio
             </a>
           </li>
           <li class="breadcrumb-item"><a href="leccion-1.html">Descubre</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Iniciemos</li>
+          <li class="breadcrumb-item active" aria-current="page">Partes del robot</li>
         </ol>
       </nav>
     </p>
@@ -146,8 +146,8 @@
     class="text-center mb-3"
     style="font-size: 50px;"
   >
-    <img src="static/img/icono_robot_azul.png" width="50px" class="mb-2">
-    Robótica
+    <img src="../../static/img/icono_robot_azul.png" width="50px" class="mb-2">
+    Partes del robot
   </h1>
 
   <div class="container-fluid">
@@ -177,7 +177,7 @@
         <br>
         <br>
         <a href="leccion-1-robotica.html">
-          <button type="button" class="btn btn-success text-start active">
+          <button type="button" class="btn btn-success text-start">
             <b style="font-size: 25px;">Robótica</b>
           </button>
         </a>
@@ -194,7 +194,7 @@
           </button>
         </a>
         <a href="leccion-1-partes-del-robot.html">
-          <button type="button" class="btn btn-success text-start">
+          <button type="button" class="btn btn-success text-start active">
             -----
             <b>Partes del robot</b>
           </button>
@@ -217,13 +217,13 @@
           border-radius: 5px;
         "
       >
-        <div class="text-center mt-5 mb-3">
-          <img
-            id="slideshow"
-            class="img-rotate"
-            src="static/img/robot-de-pie-1.webp"
-            width="35%"
+        <div class="text-center mt-5 mb-5">
+          <video
+            controls
+            style="width: 85%; height: auto; border-radius: 15px;"
+            src="../../static/video/ruta-leccion-II-partes-robot.mp4"
           >
+          </video>
         </div>
       </div>
       <!-- End Right Column -->
@@ -234,7 +234,7 @@
   <div class="container-fluid" style="background: #00a4e1; padding: 5px;">
     <div class="text-center img-zoom mb-3 mt-4">
       <a href="http://www.cenditel.gob.ve/" target="_blank">
-        <img src="static/img/logo-cenditel.png" width="7%" class="mb-3">
+        <img src="../../static/img/logo-cenditel.png" width="7%" class="mb-3">
         <br>
         <b id="typewriter" style="font-size: 15px; color: #fff"></b>
       </a>
@@ -242,44 +242,14 @@
   </div>
   <!-- Final del Footer -->
 
-  <script src="static/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    /*
-     * La imagen del robot cambia cada 2 segundos con una transición suave entre
-     * cada cambio en bucle infinito.
-    */
-    document.addEventListener("DOMContentLoaded", () => {
-      const images = [
-        "static/img/robot-de-pie-1.webp",
-        "static/img/robot-de-pie-2.webp",
-        "static/img/robot-de-pie-3.webp",
-        "static/img/robot-de-pie-4.webp"
-      ];
-      const imgElement = document.getElementById("slideshow");
-      let index = 0;
-
-      setInterval(() => {
-          // Oculta la imagen actual
-          imgElement.classList.add("hidden");
-
-          setTimeout(() => {
-              // Cambia la imagen una vez oculta
-              index = (index + 1) % images.length;
-              imgElement.src = images[index];
-              // Muestra la nueva imagen
-              imgElement.classList.remove("hidden");
-          }, 1000); // Espera que la transición termine (1s)
-      }, 1500); // Cambia cada 2 segundos
-    });
-  </script>
+  <script src="../../static/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <script>
     function unhover(element) {
-      element.setAttribute('src', 'static/img/banner.png');
+      element.setAttribute('src', '../../static/img/banner.png');
     }
     function hover(element) {
-      element.setAttribute('src', 'static/img/banner2.png');
+      element.setAttribute('src', '../../static/img/banner2.png');
     }
   </script>
 
