@@ -111,3 +111,14 @@ a:hover {
 .screwdriver-cursor:hover {
   cursor: url("../img/cursor.png"), auto;
 }
+
+/* Barra de progreso */
+#progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px; /* Altura de la barra */
+  background-color: rgb(170, 0, 170); /* Color de la barra */
+  width: 0%; /* Ancho inicial */
+  z-index: 1000; /* Aparece encima de todo */
+}
