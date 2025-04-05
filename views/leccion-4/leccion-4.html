@@ -111,7 +111,7 @@
   </head>
 <body>
   <!-- Barra de progreso -->
-  <div id="progressBar"></div>
+  <div id="progressBarAmarilla"></div>
 
   <!-- Banner -->
   <div class="container-fluidd">
@@ -297,7 +297,7 @@
 
   <script>
     // Selecciona la barra de progreso
-    const progressBar = document.getElementById('progressBar');
+    const progressBarAmarilla = document.getElementById('progressBarAmarilla');
 
     // Escuchar el evento de scroll
     window.addEventListener('scroll', () => {
@@ -314,7 +314,7 @@
     const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
 
     // Actualizar el ancho de la barra
-    progressBar.style.width = `${scrollPercentage}%`;
+    progressBarAmarilla.style.width = `${scrollPercentage}%`;
     });
   </script>
 </body>
