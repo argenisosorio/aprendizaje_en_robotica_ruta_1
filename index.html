@@ -100,42 +100,6 @@
         }
       }
 
-      .section1 {
-        opacity: 0;
-        transition: opacity 1.5s ease-in-out;
-      }
-
-      .section1.visible {
-        opacity: 1;
-      }
-
-      .section2 {
-        opacity: 0;
-        transition: opacity 1.5s ease-in-out;
-      }
-
-      .section2.visible {
-        opacity: 1;
-      }
-
-      .section3 {
-        opacity: 0;
-        transition: opacity 1.5s ease-in-out;
-      }
-
-      .section3.visible {
-        opacity: 1;
-      }
-
-      .section4 {
-        opacity: 0;
-        transition: opacity 1.5s ease-in-out;
-      }
-
-      .section4.visible {
-        opacity: 1;
-      }
-
       .section0 {
         opacity: 0;
         transition: opacity 1.5s ease-in-out;
@@ -143,6 +107,50 @@
 
       .section0.visible {
         opacity: 1;
+      }
+
+      .section1 {
+        opacity: 0;
+        transform: translateX(-100px); /* Desplazamiento inicial desde la izquierda */
+        transition: opacity 1.3s ease-out, transform 1.3s ease-out;
+      }
+
+      .section1.visible {
+        opacity: 1;
+        transform: translateX(0); /* Posición final */
+      }
+
+      .section2 {
+        opacity: 0;
+        transform: translateX(100px); /* Desplazamiento inicial desde la derecha */
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .section2.visible {
+        opacity: 1;
+        transform: translateX(0); /* Posición final */
+      }
+
+      .section3 {
+        opacity: 0;
+        transform: translateX(-100px); /* Desplazamiento inicial desde la izquierda */
+        transition: opacity 1.3s ease-out, transform 1.3s ease-out;
+      }
+
+      .section3.visible {
+        opacity: 1;
+        transform: translateX(0); /* Posición final */
+      }
+
+      .section4 {
+        opacity: 0;
+        transform: translateX(100px); /* Desplazamiento inicial desde la derecha */
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .section4.visible {
+        opacity: 1;
+        transform: translateX(0); /* Posición final */
       }
     </style>
   </head>
@@ -409,25 +417,6 @@
       },
       "retina_detect": true
     });
-
-    /* ---- stats.js config ---- */
-    var count_particles, stats, update;
-    stats = new Stats;
-    stats.setMode(0);
-    stats.domElement.style.position = 'absolute';
-    stats.domElement.style.left = '0px';
-    stats.domElement.style.top = '0px';
-    document.body.appendChild(stats.domElement);
-    count_particles = document.querySelector('.js-count-particles');
-    update = function() {
-      stats.begin();
-      stats.end();
-      if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-      }
-      requestAnimationFrame(update);
-    };
-    requestAnimationFrame(update);
   </script>
 
   <script>
@@ -489,6 +478,17 @@
   </script>
 
   <script>
+    // Script JavaScript para efecto de aparición de section0
+    const sections0 = document.querySelectorAll('.section0');
+    const observer0 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    sections0.forEach(section0 => observer0.observe(section0));
+
     // Script JavaScript para efecto de aparición de section1
     const sections1 = document.querySelectorAll('.section1');
     const observer1 = new IntersectionObserver(entries => {
@@ -532,17 +532,6 @@
       });
     }, { threshold: 0.1 });
     sections4.forEach(section4 => observer4.observe(section4));
-
-    // Script JavaScript para efecto de aparición de section4
-    const sections0 = document.querySelectorAll('.section0');
-    const observer0 = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    sections0.forEach(section0 => observer4.observe(section0));
   </script>
 </body>
 </html>
