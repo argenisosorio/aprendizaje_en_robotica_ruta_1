@@ -140,7 +140,7 @@
       }
 
       .image-list {
-        display: flex;
+        display: auto;
         flex-direction: column;
         gap: 15px;
         width: 100%;
@@ -148,7 +148,7 @@
       }
 
       .draggable-image {
-        width: 80px; /* Adjust image size as needed */
+        width: 120px; /* Adjust image size as needed */
         height: auto;
         border: 2px solid #a8dadc;
         border-radius: 8px;
@@ -158,8 +158,8 @@
       }
 
       .draggable-image:hover {
-          transform: translateY(-3px);
-          border-color: #457b9d;
+        transform: translateY(-3px);
+        border-color: #457b9d;
       }
 
       .draggable-image.dragging {
@@ -170,12 +170,13 @@
 
       /* Drop Zones */
       .drop-zones {
-        display: flex;
+        display: auto;
         flex-direction: column;
         gap: 10px; /* Smaller gap for the puzzle pieces */
         width: 100%;
         /* Example for a horizontal puzzle */
         /* If your puzzle is vertical, use: flex-direction: column; */
+        /*border: ridge 1px red;*/
       }
 
       .drop-zone {
@@ -184,11 +185,11 @@
         border: 2px dashed #a8dadc;
         background-color: #f1faee; /* Light background for empty zones */
         border-radius: 5px;
-        display: flex; /* To center dropped image if needed */
+        display: auto;
         justify-content: center;
         align-items: center;
         transition: background-color 0.3s ease, border-color 0.3s ease;
-        margin: 0 auto; /* Center the drop zones */
+        margin: 0 auto;
       }
 
       .drop-zone.drag-over {
@@ -458,23 +459,34 @@
                 <div class="drop-column">
                   <div class="drop-zones">
                     <!-- Orden correcto ded las piezasa --->
-                    <div class="drop-zone" data-id="piece1"></div>
-                    <div class="drop-zone" data-id="piece2"></div>
-                    <div class="drop-zone" data-id="piece3"></div>
-                    <div class="drop-zone" data-id="piece4"></div>
-                    <div class="drop-zone" data-id="piece5"></div>
-                    <div class="drop-zone" data-id="piece6"></div>
-                    <div class="drop-zone" data-id="piece7"></div>
-                    <div class="drop-zone" data-id="piece8"></div>
-                    <div class="drop-zone" data-id="piece9"></div>
-                    <div class="drop-zone" data-id="piece10"></div>
-                    <div class="drop-zone" data-id="piece11"></div>
+                    <table border="0px" cellpadding="0px" cellspacing="0px" style="width:100%">
+                        <tr>
+                          <td><div class="drop-zone" data-id="piece1"></div></td>
+                          <td><div class="drop-zone" data-id="piece2"></div></td>
+                          <td><div class="drop-zone" data-id="piece3"></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class="drop-zone" data-id="piece4"></div></td>
+                          <td><div class="drop-zone" data-id="piece5"></div></td>
+                          <td><div class="drop-zone" data-id="piece6"></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class="drop-zone" data-id="piece7"></div></td>
+                          <td><div class="drop-zone" data-id="piece8"></div></td>
+                          <td><div class="drop-zone" data-id="piece9"></div></td>
+                        </tr>
+                        <tr>
+                          <td><div class="drop-zone" data-id="piece10"></div></td>
+                          <td><div class="drop-zone" data-id="piece11"></div></td>
+                          <td>12</td>
+                        </tr>
+                    </table>
                   </div>
                 </div>
             </div>
 
             <button id="check-button">Chequear</button>
-            <button id="reset-button">Limpiar</button>
+            <button id="reset-button" onclick="window.location.reload();">Limpiar</button>
             <p id="message"></p>
           </div>
         </div>
@@ -569,7 +581,7 @@
         const draggableImages = document.querySelectorAll('.draggable-image');
         const dropZones = document.querySelectorAll('.drop-zone');
         const checkButton = document.getElementById('check-button');
-        const resetButton = document.getElementById('reset-button');
+        // const resetButton = document.getElementById('reset-button');
         const messageDisplay = document.getElementById('message');
         const imageList = document.querySelector('.image-list'); // Parent of original images
 
