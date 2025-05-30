@@ -112,23 +112,12 @@
       /* Estilos del puzzle */
       .puzzle-columns {
         display: flex;
-        /*justify-content: space-around;*/
         margin-bottom: 30px;
-        /*border: ridge 1px blue;*/
+        width: 90%;
       }
 
       .image-column, .drop-column {
         flex: 1;
-        /*background-color: #fbbf00;*/
-        /*padding: 20px;*/
-        /*border-radius: 10px;
-        border: ridge 1px blue;*/
-      }
-
-      .image-column {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
       }
 
       h2 {
@@ -141,11 +130,13 @@
       }
 
       .image-list {
+        /*
         display: auto;
         flex-direction: column;
         gap: 15px;
         width: 100%;
         align-items: center;
+        */
       }
 
       .silueta {
@@ -376,23 +367,26 @@
           border-radius: 5px;
         "
       >
-        <div class="text-center mt-2 mb-2">
+        <div class="mt-2 mb-2">
           <br>
-          <h3>
+          <h3 class="text-center">
             ¡Arrastra y suelta las figuras de la izquierda en los recuadros
             <br>
             de la derecha para asociar las imágenes correctamente!
           </h3>
           <br>
           <br>
-          <audio controls>
-            <source src="../../static/audio/voice-robot-cenditel.mp3" type="audio/mpeg">
-          </audio>
+          <div class="text-center">
+            <audio controls>
+              <source src="../../static/audio/voice-robot-cenditel.mp3" type="audio/mpeg">
+            </audio>
+          </div>
           <br>
-          <br>
-          <br>
-          <div class="puzzle-columns">
-            <div class="image-column">
+          <div
+            class="puzzle-columns text-center"
+            style="border: ridge 1px transparent; "
+          >
+            <div class="image-column" style="border: ridge 1px transparent; padding: 100px;">
               <div class="image-list">
                 <img
                   src="../../static/img/Leccion-4/prueba/col-izq/articulaciones.png"
@@ -446,97 +440,94 @@
               </div>
             </div>
 
-            <div class="drop-column">
+            <div class="drop-column" style="border: ridge 1px transparent;">
               <div class="drop-zones">
-                <!-- Orden correcto ded las piezasa --->
-                <table
-                  border="0px"
-                  cellpadding="10px"
-                  cellspacing="0px"
-                  style="width:100%"
+                <!-- Orden correcto ded las piezas--->
+                <div
+                  style="
+                    background-image: url('../../static/img/Leccion-4/prueba/col-der/Sensor_audicion.png');
+                    background-repeat: no-repeat;
+                    background-size: 70px 70px;
+                    background-position: center;
+                  "
                 >
-                    <tr>
-                      <td
-                        style="
-                          background-image: url('../../static/img/Leccion-4/prueba/col-der/Sensor_audicion.png');
-                          background-repeat: no-repeat;
-                          background-size: 70px 70px;
-                          background-position: center;
-                        "
-                      >
-                        <div class="drop-zone" data-id="oreja"></div>
-                      </td>
-                      <td
-                        style="
-                          background-image: url('../../static/img/Leccion-4/prueba/col-der/Actuadores_articulacion.png');
-                          background-repeat: no-repeat;
-                          background-size: 70px 70px;
-                          background-position: center;
-                        "
-                      >
-                        <div class="drop-zone" data-id="articulaciones"></div>
-                      </td>
-                      <td
-                        style="
-                          background-image: url('../../static/img/Leccion-4/prueba/col-der/Actuador.png');
-                          background-repeat: no-repeat;
-                          background-size: 70px 70px;
-                          background-position: center;
-                        "
-                      >
-                        <div class="drop-zone" data-id="boca"></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td
-                        style="
-                          background-image: url('../../static/img/Leccion-4/prueba/col-der/Controlador.png');
-                          background-repeat: no-repeat;
-                          background-size: 70px 70px;
-                          background-position: center;
-                        "
-                      >
-                        <div class="drop-zone" data-id="cabeza"></div>
-                      </td>
-                      <td
-                        style="
-                          background-image: url('../../static/img/Leccion-4/prueba/col-der/Fuente_alimentacion.png');
-                          background-repeat: no-repeat;
-                          background-size: 70px 70px;
-                          background-position: center;
-                        "
-                      >
-                        <div class="drop-zone" data-id="cintura"></div>
-                      </td>
-                      <td
-                        style="
-                          background-image: url('../../static/img/Leccion-4/prueba/col-der/Sensor_vista.png');
-                          background-repeat: no-repeat;
-                          background-size: 70px 70px;
-                          background-position: center;
-                        "
-                      >
-                        <div class="drop-zone" data-id="ojos"></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td
-                        style="
-                          background-image: url('../../static/img/Leccion-4/prueba/col-der/esqueleto.png');
-                          background-repeat: no-repeat;
-                          background-size: 70px 70px;
-                          background-position: center;
-                        "
-                      >
-                        <div class="drop-zone" data-id="silueta"></div>
-                      </td>
-                    <tr>
-                </table>
+                  <div class="drop-zone" data-id="oreja"></div>
+                </div>
+                <div
+                  style="
+                    background-image: url('../../static/img/Leccion-4/prueba/col-der/Actuadores_articulacion.png');
+                    background-repeat: no-repeat;
+                    background-size: 70px 70px;
+                    background-position: center;
+                  "
+                >
+                  <div class="drop-zone" data-id="articulaciones"></div>
+                </div>
+                <div
+                  style="
+                    background-image: url('../../static/img/Leccion-4/prueba/col-der/Actuador.png');
+                    background-repeat: no-repeat;
+                    background-size: 70px 70px;
+                    background-position: center;
+                  "
+                >
+                  <div class="drop-zone" data-id="boca"></div>
+                </div>
+
+                <div
+                  style="
+                    background-image: url('../../static/img/Leccion-4/prueba/col-der/Controlador.png');
+                    background-repeat: no-repeat;
+                    background-size: 70px 70px;
+                    background-position: center;
+                  "
+                >
+                  <div class="drop-zone" data-id="cabeza"></div>
+                </div>
+                <div
+                  style="
+                    background-image: url('../../static/img/Leccion-4/prueba/col-der/Fuente_alimentacion.png');
+                    background-repeat: no-repeat;
+                    background-size: 70px 70px;
+                    background-position: center;
+                  "
+                >
+                  <div class="drop-zone" data-id="cintura"></div>
+                </div>
+                <div
+                  style="
+                    background-image: url('../../static/img/Leccion-4/prueba/col-der/Sensor_vista.png');
+                    background-repeat: no-repeat;
+                    background-size: 70px 70px;
+                    background-position: center;
+                  "
+                >
+                  <div class="drop-zone" data-id="ojos"></div>
+                </div>
+
+                <div
+                  style="
+                    background-image: url('../../static/img/Leccion-4/prueba/col-der/esqueleto.png');
+                    background-repeat: no-repeat;
+                    background-size: 70px 70px;
+                    background-position: center;
+                  "
+                >
+                  <div class="drop-zone" data-id="silueta"></div>
+                </div>
               </div>
             </div>
           </div>
 
-          <p id="message" style="border: ridge 1px transparent; margin-top: -30px; margin-bottom: 40px;"></p>
+          <p
+            id="message"
+            class="text-center"
+            style="
+              border: ridge 1px transparent;
+              margin-top: -30px;
+              margin-bottom: 40px;"
+            >
+          </p>
 
           <div class="row" style="border: ridge 1px transparent; margin-top: -20px;">
             <div class="col-3"></div>
@@ -562,6 +553,7 @@
             </div>
             <div class="col-3"></div>
           </div>
+          <br>
         </div>
       </div>
       <!-- End Right Column -->
