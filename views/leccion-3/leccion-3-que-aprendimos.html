@@ -217,13 +217,13 @@
       >
         <!-- Pregunta 1 -->
         <div style="padding: 20px; border: ridge 1px transparent;">
-          <p style="font-size: 30px;">1. ¿El sol se relaciona con el día?</p>
+          <p style="font-size: 30px;">1. Programar es dar instrucciones a la computadora en un lenguaje que ella entiende:</p>
           <div class="mb-3" style="font-size: 20px;">
             <label>
-              <input type="radio" name="sol-dia" value="true" required> Verdadero
+              <input type="radio" name="pregunta_1" value="true" required> Verdadero
             </label>
             <label>
-              <input type="radio" name="sol-dia" value="false"> Falso
+              <input type="radio" name="pregunta_1" value="false"> Falso
             </label>
           </div>
         </div>
@@ -231,17 +231,61 @@
         <hr>
         <!-- Pregunta 2 -->
         <div style="padding: 20px; border: ridge 1px transparent;">
-          <p style="font-size: 30px;">2. ¿El arcoíris se relaciona con la noche?</p>
+          <p style="font-size: 30px;">2. Un algoritmo es una lista de instrucciones para que una computadora sepa qué hacer:</p>
           <div class="mb-3" style="font-size: 20px;">
             <label>
-              <input type="radio" name="arcoiris-noche" value="true"> Verdadero
+              <input type="radio" name="pregunta_2" value="true"> Verdadero
             </label>
             <label>
-              <input type="radio" name="arcoiris-noche" value="false"> Falso
+              <input type="radio" name="pregunta_2" value="false"> Falso
             </label>
           </div>
         </div>
         <!-- Final Pregunta 2 -->
+        <hr>
+        <!-- Pregunta 3 -->
+        <div style="padding: 20px; border: ridge 1px transparent;">
+          <p style="font-size: 30px;">3. Si estás cocinando siguiendo una receta, entonces estás siguiendo un:</p>
+          <div class="mb-3" style="font-size: 20px;">
+            <label>
+              <input type="radio" name="pregunta_3" value="true"> Un videojuego
+            </label>
+            <label>
+              <input type="radio" name="pregunta_3" value="false"> Un algoritmo
+            </label>
+          </div>
+        </div>
+        <!-- Final Pregunta 3 -->
+        <hr>
+        <!-- Pregunta 4 -->
+        <div style="padding: 20px; border: ridge 1px transparent;">
+          <p style="font-size: 30px;">4. Si quieres cepillarte los dientes, el primer paso de tu algoritmo es:</p>
+          <div class="mb-3" style="font-size: 20px;">
+            <label>
+              <input type="radio" name="pregunta_4" value="true"> Mirar televisión
+            </label>
+            <label>
+              <input type="radio" name="pregunta_4" value="false"> Poner crema en el cepillo
+            </label>
+          </div>
+        </div>
+        <!-- Final Pregunta 4 -->
+        <hr>
+        <!-- Pregunta 5 -->
+        <div style="padding: 20px; border: ridge 1px transparent;">
+          <p style="font-size: 30px;">5. Los colores de los bloques de Scratch indican lo que hace cada bloque:</p>
+          <div class="mb-3" style="font-size: 20px;">
+            <label>
+              <input type="radio" name="pregunta_5" value="true"> Verdadero
+            </label>
+            <label>
+              <input type="radio" name="pregunta_5" value="false"> Falso
+            </label>
+          </div>
+        </div>
+        <!-- Final Pregunta 5 -->
+        <hr>
+        <!-- Botones del formulario -->
         <div class="text-center mb-3">
           <button
             type="button"
@@ -261,6 +305,7 @@
             <b>Reiniciar</b>
           </button>
         </div>
+        <!-- Final de Botones del formulario -->
       </div>
       <!-- End Right Column -->
     </div>
@@ -350,34 +395,62 @@
   <script>
     function checkAnswers() {
       // Obtener las respuestas seleccionadas
-      const solDia = document.querySelector('input[name="sol-dia"]:checked');
-      const arcoirisNoche = document.querySelector('input[name="arcoiris-noche"]:checked');
+      const pregunta_1 = document.querySelector('input[name="pregunta_1"]:checked');
+      const pregunta_2 = document.querySelector('input[name="pregunta_2"]:checked');
+      const pregunta_3 = document.querySelector('input[name="pregunta_3"]:checked');
+      const pregunta_4 = document.querySelector('input[name="pregunta_4"]:checked');
+      const pregunta_5 = document.querySelector('input[name="pregunta_5"]:checked');
 
       // Verificar que ambas preguntas tengan respuesta
-      if (!solDia || !arcoirisNoche) {
-        alert('Por favor responde ambas preguntas');
+      if (
+        !pregunta_1 || !pregunta_2 ||
+        !pregunta_3 || !pregunta_4 ||
+        !pregunta_5
+      ) {
+        alert('Por favor responde todas las preguntas');
         return;
       }
 
       // Convertir valores a booleanos
-      const respuesta1 = solDia.value === "true";
-      const respuesta2 = arcoirisNoche.value === "true";
+      const respuesta1 = pregunta_1.value === "true";
+      const respuesta2 = pregunta_2.value === "true";
+      const respuesta3 = pregunta_3.value === "true";
+      const respuesta4 = pregunta_4.value === "true";
+      const respuesta5 = pregunta_5.value === "true";
 
       // Respuestas correctas
-      const correcto1 = true;   // El sol SÍ se relaciona con el día
-      const correcto2 = false;  // El arcoíris NO se relaciona con la noche
+      const correcto1 = true;
+      const correcto2 = true;
+      const correcto3 = false;
+      const correcto4 = false;
+      const correcto5 = true;
 
       // Verificar respuestas
-      if (respuesta1 === correcto1 && respuesta2 === correcto2) {
-        alert('¡Perfecto! 🌟\nAmbas respuestas son correctas:\n1. El sol sí está relacionado con el día\n2. El arcoíris no aparece de noche');
+      if (
+        respuesta1 === correcto1 &&
+        respuesta2 === correcto2 &&
+        respuesta3 === correcto3 &&
+        respuesta4 === correcto4 &&
+        respuesta5 === correcto5
+      ){
+        alert('¡Perfecto! todas las respuestas son correctas');
       } else {
-        let mensaje = '❌ Alguna respuesta es incorrecta:\n';
+        let mensaje = '❌ Algunas respuestas son incorrectas:\n';
 
         if (respuesta1 !== correcto1) {
-          mensaje += '\n- El sol SÍ está relacionado con el día (es lo que produce la luz diurna)';
+          mensaje += '\n- Explicación 1)';
         }
         if (respuesta2 !== correcto2) {
-          mensaje += '\n- El arcoíris NO está relacionado con la noche (se produce por refracción de luz solar en gotas de agua)';
+          mensaje += '\n- Explicación 2)';
+        }
+        if (respuesta3 !== correcto3) {
+          mensaje += '\n- Explicación 3)';
+        }
+        if (respuesta4 !== correcto4) {
+          mensaje += '\n- Explicación 4)';
+        }
+        if (respuesta5 !== correcto5) {
+          mensaje += '\n- Explicación 5)';
         }
 
         alert(mensaje);
