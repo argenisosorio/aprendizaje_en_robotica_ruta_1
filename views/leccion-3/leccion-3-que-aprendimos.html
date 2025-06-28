@@ -103,9 +103,23 @@
           padding: 10px;
         }
 
+        .btn-danger {
+          padding: 10px;
+        }
+
         h1 {
           font-size: 50px;
         }
+      }
+      #reset-button {
+        background-color: #e63946;
+        color: #fff;
+        border-color: #e63946;
+      }
+
+      #reset-button:hover {
+        background-color: #c9303d;
+        transform: translateY(-2px);
       }
     </style>
   </head>
@@ -201,28 +215,52 @@
           border-radius: 5px;
         "
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit.
-        <br>
-        <br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit.
-        <br>
-        <br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit.
+        <!-- Pregunta 1 -->
+        <div style="padding: 20px; border: ridge 1px transparent;">
+          <p style="font-size: 30px;">1. ¿El sol se relaciona con el día?</p>
+          <div class="mb-3" style="font-size: 20px;">
+            <label>
+              <input type="radio" name="sol-dia" value="true" required> Verdadero
+            </label>
+            <label>
+              <input type="radio" name="sol-dia" value="false"> Falso
+            </label>
+          </div>
+        </div>
+        <!-- Final Pregunta 1 -->
+        <hr>
+        <!-- Pregunta 2 -->
+        <div style="padding: 20px; border: ridge 1px transparent;">
+          <p style="font-size: 30px;">2. ¿El arcoíris se relaciona con la noche?</p>
+          <div class="mb-3" style="font-size: 20px;">
+            <label>
+              <input type="radio" name="arcoiris-noche" value="true"> Verdadero
+            </label>
+            <label>
+              <input type="radio" name="arcoiris-noche" value="false"> Falso
+            </label>
+          </div>
+        </div>
+        <!-- Final Pregunta 2 -->
+        <div class="text-center mb-3">
+          <button
+            type="button"
+            class="btn btn-success active"
+            onclick="checkAnswers()"
+            style="width: 15%;"
+          >
+            Verificar
+          </button>
+          <button
+            id="reset-button"
+            type="button"
+            class="btn btn-success"
+            onclick="resetRadios();"
+            style="width: 15%;"
+          >
+            <b>Reiniciar</b>
+          </button>
+        </div>
       </div>
       <!-- End Right Column -->
     </div>
@@ -307,6 +345,51 @@
     // Actualizar el ancho de la barra
     progressBarVerde.style.width = `${scrollPercentage}%`;
     });
+  </script>
+
+  <script>
+    function checkAnswers() {
+      // Obtener las respuestas seleccionadas
+      const solDia = document.querySelector('input[name="sol-dia"]:checked');
+      const arcoirisNoche = document.querySelector('input[name="arcoiris-noche"]:checked');
+
+      // Verificar que ambas preguntas tengan respuesta
+      if (!solDia || !arcoirisNoche) {
+        alert('Por favor responde ambas preguntas');
+        return;
+      }
+
+      // Convertir valores a booleanos
+      const respuesta1 = solDia.value === "true";
+      const respuesta2 = arcoirisNoche.value === "true";
+
+      // Respuestas correctas
+      const correcto1 = true;   // El sol SÍ se relaciona con el día
+      const correcto2 = false;  // El arcoíris NO se relaciona con la noche
+
+      // Verificar respuestas
+      if (respuesta1 === correcto1 && respuesta2 === correcto2) {
+        alert('¡Perfecto! 🌟\nAmbas respuestas son correctas:\n1. El sol sí está relacionado con el día\n2. El arcoíris no aparece de noche');
+      } else {
+        let mensaje = '❌ Alguna respuesta es incorrecta:\n';
+
+        if (respuesta1 !== correcto1) {
+          mensaje += '\n- El sol SÍ está relacionado con el día (es lo que produce la luz diurna)';
+        }
+        if (respuesta2 !== correcto2) {
+          mensaje += '\n- El arcoíris NO está relacionado con la noche (se produce por refracción de luz solar en gotas de agua)';
+        }
+
+        alert(mensaje);
+      }
+    }
+
+    /* Desmarca todos los radios del formulario */
+    function resetRadios() {
+      document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.checked = false;
+      });
+    }
   </script>
 </body>
 </html>
