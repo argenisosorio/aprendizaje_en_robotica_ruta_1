@@ -306,6 +306,32 @@
           </button>
         </div>
         <!-- Final de Botones del formulario -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body d-flex flex-column align-items-center">
+                <img
+                  id="modalImage"
+                  src=""
+                  alt=""
+                  style="width: 50%; display: none;"
+                >
+                <hr>
+                <h2 class="text-center" id="modalText"></h2>
+                <span class="text-center" id="helpText"></span>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Final de Modal -->
       </div>
       <!-- End Right Column -->
     </div>
@@ -407,7 +433,21 @@
         !pregunta_3 || !pregunta_4 ||
         !pregunta_5
       ) {
-        alert('Por favor responde todas las preguntas');
+        /* Abrir el modal y pasarle los parámetros según las acciones del usuario */
+        // Imagen para el modal si no se responde alguna pregunta.
+        imgSrc = "../../static/img/favicon.png";
+
+        // Mostrar el modal con la imagen.
+        const modalImageElement = document.getElementById('modalImage');
+
+        // Cambiar la imagen del modal
+        modalImageElement.src = imgSrc;
+
+        document.getElementById('modalImage').style.display = 'block';
+        document.getElementById('modalText').textContent = 'Por favor responde todas las preguntas';
+        document.getElementById('helpText').textContent = '';
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+        myModal.show();
         return;
       }
 
@@ -433,9 +473,36 @@
         respuesta4 === correcto4 &&
         respuesta5 === correcto5
       ){
-        alert('¡Perfecto! todas las respuestas son correctas');
+        /* Abrir el modal y pasarle los parámetros según las acciones del usuario */
+        // Imagen para el modal si no se responde alguna pregunta.
+        imgSrc = "../../static/img/acierto.png";
+
+        // Mostrar el modal con la imagen.
+        const modalImageElement = document.getElementById('modalImage');
+
+        // Cambiar la imagen del modal
+        modalImageElement.src = imgSrc;
+
+        document.getElementById('modalText').textContent = '¡Perfecto! todas las respuestas son correctas';
+        document.getElementById('modalImage').style.display = 'block';
+        document.getElementById('helpText').textContent = '';
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+        myModal.show();
+        return;
       } else {
-        let mensaje = '❌ Algunas respuestas son incorrectas:\n';
+        /* Abrir el modal y pasarle los parámetros según las acciones del usuario */
+        // Imagen para el modal si no se responde alguna pregunta.
+        imgSrc = "../../static/img/favicon.png";
+
+        // Mostrar el modal con la imagen.
+        const modalImageElement = document.getElementById('modalImage');
+
+        // Cambiar la imagen del modal
+        modalImageElement.src = imgSrc;
+
+        document.getElementById('modalText').textContent = '❌ Algunas respuestas son incorrectas:';
+
+        let mensaje = '';
 
         if (respuesta1 !== correcto1) {
           mensaje += '\n- Explicación 1)';
@@ -453,7 +520,12 @@
           mensaje += '\n- Explicación 5)';
         }
 
-        alert(mensaje);
+        document.getElementById('helpText').textContent = mensaje;
+
+        document.getElementById('modalImage').style.display = 'block';
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+        myModal.show();
+        return;
       }
     }
 
