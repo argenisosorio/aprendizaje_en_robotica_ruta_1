@@ -427,27 +427,18 @@
       const pregunta_4 = document.querySelector('input[name="pregunta_4"]:checked');
       const pregunta_5 = document.querySelector('input[name="pregunta_5"]:checked');
 
-      // Verificar que ambas preguntas tengan respuesta
+      // Verificar que todas las preguntas tengan respuesta
       if (
         !pregunta_1 || !pregunta_2 ||
         !pregunta_3 || !pregunta_4 ||
         !pregunta_5
       ) {
-        /* Abrir el modal y pasarle los parámetros según las acciones del usuario */
-        // Imagen para el modal si no se responde alguna pregunta.
-        imgSrc = "../../static/img/favicon.png";
-
-        // Mostrar el modal con la imagen.
-        const modalImageElement = document.getElementById('modalImage');
-
-        // Cambiar la imagen del modal
-        modalImageElement.src = imgSrc;
-
-        document.getElementById('modalImage').style.display = 'block';
-        document.getElementById('modalText').textContent = 'Por favor responde todas las preguntas';
-        document.getElementById('helpText').textContent = '';
-        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
-        myModal.show();
+        openModal(
+          "../../static/img/favicon.png",
+          'Por favor responde todas las preguntas',
+          '',
+          'block'
+        );
         return;
       }
 
@@ -473,59 +464,37 @@
         respuesta4 === correcto4 &&
         respuesta5 === correcto5
       ){
-        /* Abrir el modal y pasarle los parámetros según las acciones del usuario */
-        // Imagen para el modal si no se responde alguna pregunta.
-        imgSrc = "../../static/img/acierto.png";
-
-        // Mostrar el modal con la imagen.
-        const modalImageElement = document.getElementById('modalImage');
-
-        // Cambiar la imagen del modal
-        modalImageElement.src = imgSrc;
-
-        document.getElementById('modalText').textContent = '¡Perfecto! todas las respuestas son correctas';
-        document.getElementById('modalImage').style.display = 'block';
-        document.getElementById('helpText').textContent = '';
-        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
-        myModal.show();
-        return;
+        openModal(
+          "../../static/img/acierto.png",
+          '✅ ¡Perfecto! todas las respuestas son correctas',
+          '',
+          'block'
+        );
       } else {
-        /* Abrir el modal y pasarle los parámetros según las acciones del usuario */
-        // Imagen para el modal si no se responde alguna pregunta.
-        imgSrc = "../../static/img/favicon.png";
-
-        // Mostrar el modal con la imagen.
-        const modalImageElement = document.getElementById('modalImage');
-
-        // Cambiar la imagen del modal
-        modalImageElement.src = imgSrc;
-
-        document.getElementById('modalText').textContent = '❌ Algunas respuestas son incorrectas:';
-
         let mensaje = '';
 
         if (respuesta1 !== correcto1) {
-          mensaje += '\n- Explicación 1)';
+          mensaje += '\n1,';
         }
         if (respuesta2 !== correcto2) {
-          mensaje += '\n- Explicación 2)';
+          mensaje += '\n2,';
         }
         if (respuesta3 !== correcto3) {
-          mensaje += '\n- Explicación 3)';
+          mensaje += '\n3,';
         }
         if (respuesta4 !== correcto4) {
-          mensaje += '\n- Explicación 4)';
+          mensaje += '\n4,';
         }
         if (respuesta5 !== correcto5) {
-          mensaje += '\n- Explicación 5)';
+          mensaje += '\n5';
         }
 
-        document.getElementById('helpText').textContent = mensaje;
-
-        document.getElementById('modalImage').style.display = 'block';
-        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
-        myModal.show();
-        return;
+        openModal(
+          "../../static/img/favicon.png",
+          '❌ Algunas respuestas son incorrectas:',
+          mensaje,
+          'block'
+        );
       }
     }
 
@@ -534,6 +503,26 @@
       document.querySelectorAll('input[type="radio"]').forEach(radio => {
         radio.checked = false;
       });
+    }
+
+    /* Función para abrir el modal */
+    function openModal(image,text,helpText,display){
+      // Imagen para el modal si no se responde alguna pregunta.
+      imgSrc = image;
+
+      // Mostrar el modal con la imagen.
+      const modalImageElement = document.getElementById('modalImage');
+
+      // Cambiar la imagen del modal
+      modalImageElement.src = imgSrc;
+
+      document.getElementById('modalText').textContent = text;
+      document.getElementById('helpText').textContent = helpText;
+      document.getElementById('modalImage').style.display = display;
+
+      var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+      myModal.show();
+      return;
     }
   </script>
 </body>
