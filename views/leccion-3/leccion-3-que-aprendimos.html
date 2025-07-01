@@ -222,9 +222,12 @@
             <label>
               <input type="radio" name="pregunta_1" value="true" required> Verdadero
             </label>
+            <br>
             <label>
               <input type="radio" name="pregunta_1" value="false"> Falso
             </label>
+            <div id="helpAnswer1_check" style="display: none;">✅</div>
+            <div id="helpAnswer1_x" style="display: none;">❌</div>
           </div>
         </div>
         <!-- Final Pregunta 1 -->
@@ -236,9 +239,12 @@
             <label>
               <input type="radio" name="pregunta_2" value="true"> Verdadero
             </label>
+            <br>
             <label>
               <input type="radio" name="pregunta_2" value="false"> Falso
             </label>
+            <div id="helpAnswer2_check" style="display: none;">✅</div>
+            <div id="helpAnswer2_x" style="display: none;">❌</div>
           </div>
         </div>
         <!-- Final Pregunta 2 -->
@@ -250,9 +256,12 @@
             <label>
               <input type="radio" name="pregunta_3" value="true"> Un videojuego
             </label>
+            <br>
             <label>
               <input type="radio" name="pregunta_3" value="false"> Un algoritmo
             </label>
+            <div id="helpAnswer3_check" style="display: none;">✅</div>
+            <div id="helpAnswer3_x" style="display: none;">❌</div>
           </div>
         </div>
         <!-- Final Pregunta 3 -->
@@ -264,9 +273,12 @@
             <label>
               <input type="radio" name="pregunta_4" value="true"> Mirar televisión
             </label>
+            <br>
             <label>
               <input type="radio" name="pregunta_4" value="false"> Poner crema en el cepillo
             </label>
+            <div id="helpAnswer4_check" style="display: none;">✅</div>
+            <div id="helpAnswer4_x" style="display: none;">❌</div>
           </div>
         </div>
         <!-- Final Pregunta 4 -->
@@ -278,9 +290,12 @@
             <label>
               <input type="radio" name="pregunta_5" value="true"> Verdadero
             </label>
+            <br>
             <label>
               <input type="radio" name="pregunta_5" value="false"> Falso
             </label>
+            <div id="helpAnswer5_check" style="display: none;">✅</div>
+            <div id="helpAnswer5_x" style="display: none;">❌</div>
           </div>
         </div>
         <!-- Final Pregunta 5 -->
@@ -334,7 +349,7 @@
                 >
                 <hr>
                 <h2 class="text-center" id="modalText"></h2>
-                <span class="text-center" id="helpText"></span>
+                <span id="helpText"></span>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -489,19 +504,19 @@
         let mensaje = '';
 
         if (respuesta1 !== correcto1) {
-          mensaje += '\n1';
+          mensaje += '💡 Pista 1: Programar es dar instrucciones a la computadora en un lenguaje que ella entiende.<br><br>';
         }
         if (respuesta2 !== correcto2) {
-          mensaje += '\n2';
+          mensaje += '💡 Pista 2: Un algoritmo es una lista de instrucciones.<br><br>';
         }
         if (respuesta3 !== correcto3) {
-          mensaje += '\n3';
+          mensaje += '💡 Pista 3: Una receta es un algoritmo.<br><br>';
         }
         if (respuesta4 !== correcto4) {
-          mensaje += '\n4';
+          mensaje += '💡 Pista 4: El primer paso para cepillarte los dientes es poner crema en el cepillo.<br><br>';
         }
         if (respuesta5 !== correcto5) {
-          mensaje += '\n5';
+          mensaje += '💡 Pista 5: Los colores de los bloques de Scratch indican su función.';
         }
 
         openModal(
@@ -520,6 +535,17 @@
       });
       // Ocultar la sección siguiente.
       document.getElementById('next-section').style.display = 'none';
+      // Ocultar los íconos de ayuda.
+      document.getElementById('helpAnswer1_check').style.display = 'none';
+      document.getElementById('helpAnswer1_x').style.display = 'none';
+      document.getElementById('helpAnswer2_check').style.display = 'none';
+      document.getElementById('helpAnswer2_x').style.display = 'none';
+      document.getElementById('helpAnswer3_check').style.display = 'none';
+      document.getElementById('helpAnswer3_x').style.display = 'none';
+      document.getElementById('helpAnswer4_check').style.display = 'none';
+      document.getElementById('helpAnswer4_x').style.display = 'none';
+      document.getElementById('helpAnswer5_check').style.display = 'none';
+      document.getElementById('helpAnswer5_x').style.display = 'none';
     }
 
     /* Función para abrir el modal */
@@ -534,13 +560,88 @@
       modalImageElement.src = imgSrc;
 
       document.getElementById('modalText').textContent = text;
-      document.getElementById('helpText').textContent = helpText;
+      document.getElementById('helpText').innerHTML = helpText;
       document.getElementById('modalImage').style.display = display;
 
       var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
       myModal.show();
       return;
     }
+
+    // Mostrar el check si la respuesta es Verdadero en la pregunta 1
+    document.querySelectorAll('input[name="pregunta_1"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        const check = document.getElementById('helpAnswer1_check');
+        const x = document.getElementById('helpAnswer1_x');
+        if (this.value === "true" && this.checked) {
+          check.style.display = 'block';
+          x.style.display = 'none';
+        } else {
+          check.style.display = 'none';
+          x.style.display = 'block';
+        }
+      });
+    });
+
+    // Mostrar el check si la respuesta es Verdadero en la pregunta 2
+    document.querySelectorAll('input[name="pregunta_2"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        const check = document.getElementById('helpAnswer2_check');
+        const x = document.getElementById('helpAnswer2_x');
+        if (this.value === "true" && this.checked) {
+          check.style.display = 'block';
+          x.style.display = 'none';
+        } else {
+          check.style.display = 'none';
+          x.style.display = 'block';
+        }
+      });
+    });
+
+    // Mostrar el check si la respuesta es Verdadero en la pregunta 3
+    document.querySelectorAll('input[name="pregunta_3"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        const check = document.getElementById('helpAnswer3_check');
+        const x = document.getElementById('helpAnswer3_x');
+        if (this.value === "true" && this.checked) {
+          check.style.display = 'none';
+          x.style.display = 'block';
+        } else {
+          check.style.display = 'block';
+          x.style.display = 'none';
+        }
+      });
+    });
+
+    // Mostrar el check si la respuesta es Verdadero en la pregunta 4
+    document.querySelectorAll('input[name="pregunta_4"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        const check = document.getElementById('helpAnswer4_check');
+        const x = document.getElementById('helpAnswer4_x');
+        if (this.value === "true" && this.checked) {
+          check.style.display = 'none';
+          x.style.display = 'block';
+        } else {
+          check.style.display = 'block';
+          x.style.display = 'none';
+        }
+      });
+    });
+
+    // Mostrar el check si la respuesta es Verdadero en la pregunta 5
+    document.querySelectorAll('input[name="pregunta_5"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        const check = document.getElementById('helpAnswer5_check');
+        const x = document.getElementById('helpAnswer5_x');
+        if (this.value === "true" && this.checked) {
+          check.style.display = 'block';
+          x.style.display = 'none';
+        } else {
+          check.style.display = 'none';
+          x.style.display = 'block';
+        }
+      });
+    });
   </script>
 </body>
 </html>
